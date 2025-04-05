@@ -1,7 +1,43 @@
-export default function Header(){
-    return(
-        <div className="bg-amber-50">
+'use client';
 
-        </div>
-    )
+import { useState } from 'react';
+import Image from 'next/image';
+import UseGetScreenSize from '@/customHooks/getScreenSize';
+import NavBar from './components/navBar';
+
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const windowSize = UseGetScreenSize();
+
+  const toggleMenu = () => setIsMenuOpen((prevState) => !prevState);
+
+  return (
+    <div className="bg-amber-900 h-20 rounded-b-4xl md:h-25 lg:h-30">
+      <div className="w-[90%] justify-between flex m-0 m-auto pt-5 md:pt-7 lg:pt-10">
+        <Image height={100} width={100} src={'/icons/logo.svg'} alt="logo" />
+
+        {windowSize.width < 768 && (
+          <div className="flex items-center">
+            <button className="text-white md:hidden" onClick={toggleMenu}>
+              <Image
+                className="cursor-pointer"
+                height={30}
+                width={30}
+                src={'/icons/burgerIcon.svg'}
+                alt="button"
+              />
+            </button>
+
+            {isMenuOpen && (
+              <div className="absolute mt-35 left-0 right-0 bg-amber-900 p-5">
+                <NavBar />
+              </div>
+            )}
+          </div>
+        )}
+
+        {windowSize.width >= 768 && <NavBar />}
+      </div>
+    </div>
+  );
 }
