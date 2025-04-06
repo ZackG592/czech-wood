@@ -2,7 +2,7 @@ import QuestionForm from '@/forms/questionForm';
 
 export default function AskQuestionSection() {
   return (
-    <div className="bg-[#222021] text-white">
+    <div className="bg-[#222021] text-white pb-10 pt-5">
       <div className="w-[90%] m-0 m-auto md:text-center">
         <div className="text-[36px] md:text-[48px] lg:text-[72px]">
           Any questions?
