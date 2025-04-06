@@ -12,19 +12,27 @@ export default function QuestionForm() {
   return (
     <form onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}>
       <input
+        className="border border-[#728BAD] p-3 placeholder:text-[#D9D9D9] text-white w-[100%] mt-5 rounded-2xl md:w-[50%] md:block m-0 m-auto lg:w-[35%]"
         type="text"
         {...register('name')}
         placeholder="Your name"
         required
       />
       <input
+        className="border border-[#728BAD] p-3 placeholder:text-[#D9D9D9] text-white w-[100%] mt-5 rounded-2xl md:w-[50%] md:block m-0 m-auto lg:w-[35%]"
         type="text"
         {...register('phonenumber')}
         placeholder="Your telephone number"
         required
       />
-      <textarea {...register('question')} placeholder="Your question" />
-      <Button text="Send" />
+      <textarea
+        className="border border-[#728BAD] p-3 placeholder:text-[#D9D9D9] text-white w-[100%] mt-5 rounded-2xl md:w-[50%] md:block m-0 m-auto lg:w-[35%]"
+        {...register('question')}
+        placeholder="Your question"
+      />
+      <div className="w-[40%] mt-5 m-0 m-auto lg:w-[30%]">
+        <Button text="Send" />
+      </div>
     </form>
   );
 }
