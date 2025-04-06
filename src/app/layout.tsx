@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -31,7 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        {children}
+        <div className="h-full">{children}</div>
         <Footer />
       </body>
     </html>
