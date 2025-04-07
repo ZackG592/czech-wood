@@ -1,1 +1,7 @@
 @import 'tailwindcss';
+
+.background-image-404 {
+  background-image: url('/backgrounds/404background.svg');
+  background-color: black;
+  opacity: 80;
+}
