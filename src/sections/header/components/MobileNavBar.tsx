@@ -1,4 +1,5 @@
 import { FC, SetStateAction, Dispatch } from 'react';
+import NavBar from './navBar';
 
 interface MobileNavBarProps {
   setFunc: Dispatch<SetStateAction<boolean>>;
@@ -13,19 +14,8 @@ const MobileNavBar: FC<MobileNavBarProps> = ({ setFunc }) => {
       >
         X
       </div>
-      <div>
-        <div className="w-[50%] m-0 m-auto mt-15 text-center active:text-red-800">
-          Gallery
-        </div>
-        <div className="w-[50%] m-0 m-auto mt-5 text-center  active:text-red-800">
-          Prices
-        </div>
-        <div className="w-[50%] m-0 m-auto mt-5 text-center  active:text-red-800">
-          About us
-        </div>
-        <div className="w-[50%] m-0 m-auto mt-5 text-center  active:text-red-800">
-          Contact
-        </div>
+      <div onClick={() => setFunc(false)}>
+        <NavBar />
       </div>
     </div>
   );

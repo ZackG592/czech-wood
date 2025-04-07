@@ -1,10 +1,18 @@
+import Link from 'next/link';
+
+import { NAV_BAR_LINKS } from '@/constants/links';
+
 export default function NavBar() {
   return (
-    <div className="flex justify-around text-white md:text-lg lg:text-2xl w-[100%] md:w-[60%]">
-      <div>Gallery</div>
-      <div>Prices</div>
-      <div>About us</div>
-      <div>Contact</div>
+    <div className="md:flex md:justify-around text-white md:text-lg lg:text-2xl w-[100%] md:w-[60%]">
+      {Object.values(NAV_BAR_LINKS).map((key, index) => (
+        <div
+          className="mt-15 active:text-red-800 md:mt-0 cursor-pointer text-center"
+          key={index}
+        >
+          <Link href={key.link}>{key.name}</Link>
+        </div>
+      ))}
     </div>
   );
 }

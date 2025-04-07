@@ -2,9 +2,14 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+
 import UseGetScreenSize from '@/customHooks/getScreenSize';
+
 import NavBar from './components/navBar';
 import MobileNavBar from './components/MobileNavBar';
+
+import { NAV_BAR_LINKS } from '@/constants/links';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,8 +19,14 @@ export default function Header() {
     <div className="bg-[#222021]">
       <div className="bg-[#1E0C06] h-20 rounded-b-4xl md:h-25 lg:h-30">
         <div className="w-[90%] justify-between flex m-0 m-auto pt-5 md:pt-7 lg:pt-10">
-          <Image height={100} width={100} src={'/icons/logo.svg'} alt="logo" />
-
+          <Link href={NAV_BAR_LINKS.home.link}>
+            <Image
+              height={100}
+              width={100}
+              src={'/icons/logo.svg'}
+              alt="logo"
+            />
+          </Link>
           {windowSize.width < 768 && (
             <div className="flex items-center">
               <button
