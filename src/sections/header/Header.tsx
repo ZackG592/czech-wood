@@ -4,12 +4,11 @@ import { useState } from 'react';
 import Image from 'next/image';
 import UseGetScreenSize from '@/customHooks/getScreenSize';
 import NavBar from './components/navBar';
+import MobileNavBar from './components/MobileNavBar';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const windowSize = UseGetScreenSize();
-
-  const toggleMenu = () => setIsMenuOpen((prevState) => !prevState);
 
   return (
     <div className="bg-[#222021]">
@@ -19,19 +18,24 @@ export default function Header() {
 
           {windowSize.width < 768 && (
             <div className="flex items-center">
-              <button className="text-white md:hidden" onClick={toggleMenu}>
-                <Image
-                  className="cursor-pointer"
-                  height={30}
-                  width={30}
-                  src={'/icons/burgerIcon.svg'}
-                  alt="button"
-                />
+              <button
+                className="text-white md:hidden"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {!isMenuOpen && (
+                  <Image
+                    className="cursor-pointer"
+                    height={30}
+                    width={30}
+                    src={'/icons/burgerIcon.svg'}
+                    alt="button"
+                  />
+                )}
               </button>
 
               {isMenuOpen && (
-                <div className="absolute mt-35 left-0 right-0 bg-amber-900 p-5">
-                  <NavBar />
+                <div className="absolute left-0 right-0 top-0">
+                  <MobileNavBar setFunc={setIsMenuOpen} />
                 </div>
               )}
             </div>

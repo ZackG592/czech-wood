@@ -19,7 +19,7 @@ export default function AboutSection() {
               <Image
                 height={200}
                 width={200}
-                className={`relative mt-10 bg-[#1E0C06] p-2 rounded-4xl z-10 w-[175px] h-[175px] md:w-[200px] md:h-[200px] lg:w-[300px] lg:h-[300px]
+                className={`relative mt-10 bg-[#1E0C06] p-2 rounded-4xl z-1 w-[175px] h-[175px] md:w-[200px] md:h-[200px] lg:w-[300px] lg:h-[300px]
                            xl:w-[350px] xl:h-[350px]`}
                 src={'/images/worker(1).svg'}
                 alt="image of worker"
